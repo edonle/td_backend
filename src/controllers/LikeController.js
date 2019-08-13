@@ -10,7 +10,10 @@ module.exports = {
         const { devId } = req.params;
         const { user } = req.headers;
 
+        /* Usuário logado */
         const loggedDev = await Dev.findById(user);
+        
+        /* Usuário alvo - vai receber o like */
         const targetDev = await Dev.findById(devId);
 
         if(!targetDev) {
